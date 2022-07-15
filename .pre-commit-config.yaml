@@ -7,9 +7,13 @@ repos:
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
     -   id: check-yaml
-    -   id: check-json
+        args: [--allow-multiple-documents]
     -   id: check-xml
     -   id: check-toml
+-   repo: https://gitlab.com/bmares/check-json5
+    rev: v1.0.0
+    hooks:
+    - id: check-json5
 -   repo: https://github.com/pre-commit/mirrors-isort
     rev: 5.10.1
     hooks:
@@ -20,7 +24,7 @@ repos:
     hooks:
     - id: black
       name: Formatting code
-    language_version: python3.10
+      language_version: python3.10
 -   repo: https://github.com/PyCQA/flake8
     rev: 4.0.1
     hooks:

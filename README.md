@@ -96,30 +96,39 @@ For a general Python project I would propose the following jobs/tests:
         -   id: trailing-whitespace
         -   id: end-of-file-fixer
         -   id: check-yaml
-        -   id: check-json
+            args: [--allow-multiple-documents]
         -   id: check-xml
         -   id: check-toml
+    -   repo: https://gitlab.com/bmares/check-json5
+        rev: v1.0.0
+        hooks:
+        - id: check-json5
     -   repo: https://github.com/pre-commit/mirrors-isort
         rev: 5.10.1
         hooks:
         - id: isort
-          name: Sorting Python imports with isort
+        name: Sorting Python imports with isort
     -   repo: https://github.com/ambv/black
         rev: stable
         hooks:
         - id: black
-          name: Formatting code
+        name: Formatting code
         language_version: python3.10
     -   repo: https://github.com/PyCQA/flake8
         rev: 4.0.1
         hooks:
         - id: flake8
-          name: Linting with flake8
+        name: Linting with flake8
     ```
     **Info about the steps**:
     - **pre-commit hooks**:  Check out the [documentation](https://pre-commit.com/hooks.html)  about what each
-        step does and modify as necessary. This is pretty standard stuff.
-    - **isort**: Manages and orders imports on Python files.
+        step does and modify as necessary. This is pretty standard stuff. 
+        I recommend to allow multiple documents in one yaml file becuase one gets many kubernetes 
+        deployment files with small snippets otherwise.
+    - **check-json5**: Checks if json files are valid.
+        This one is fine with comments in json-files,
+        which the default one from pre-commit is not.
+    - **isort**: Orders imports on Python files after PEP 8 guidelines.
     - **black**: Pretty strict Python formatter.
         It does not provide much stuff to configure, which
         is a blessing and a curse at the same time.
@@ -144,8 +153,9 @@ For a general Python project I would propose the following jobs/tests:
     So if you decide to swap out some stuff, keep an eye on the order of the
     tasks.
 
-    **Note**: If you want more info on pre-commit and maybe add commands check out
-    the [documentation](https://pre-commit.com/index.html).
+    **Note**: If you want more info on pre-commit and maybe add your own commands, 
+    check out the [documentation](https://pre-commit.com/index.html).
+
 4. Add a file called ```pyproject.toml``` to the root of your project.
 isort and Black do not work hand in hand out of the box.
 Some configuratiion is needed to ensure a successful integration.
