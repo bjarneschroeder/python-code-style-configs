@@ -238,4 +238,4 @@ validate that it does what it should with:
 
 P.S.: Don't worry if the formatters and linter give you the feeling that
 you are the worst dev that has ever walked on this planet.
-It is always like that if you introduce your linters to your project.
+It is always like that if you introduce linters to your project.
