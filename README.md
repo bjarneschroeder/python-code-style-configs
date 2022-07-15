@@ -126,7 +126,7 @@ For a general Python project I would propose the following jobs/tests:
         I recommend to allow multiple documents in one yaml file becuase one gets many kubernetes 
         deployment files with small snippets otherwise.
     - **check-json5**: Checks if json files are valid.
-        This one is fine with comments in json-files,
+        This one is fine with comments in json files,
         which the default one from pre-commit is not.
     - **isort**: Orders imports on Python files after PEP 8 guidelines.
     - **black**: Pretty strict Python formatter.
@@ -235,3 +235,7 @@ validate that it does what it should with:
     pre-commit run --all-files
     ```
 **NOTE**: All proposed template files can be found in this repository.
+
+P.S.: Don't worry if the formatters and linter give you the feeling that
+you are the worst dev that has ever walked on this planet.
+It is always like that if you introduce your linters to your project.
