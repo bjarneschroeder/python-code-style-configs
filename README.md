@@ -103,7 +103,7 @@ For a general Python project I would propose the following jobs/tests:
         rev: v1.0.0
         hooks:
         - id: check-json5
-    -   repo: https://github.com/pre-commit/mirrors-isort
+    -   repo: https://github.com/pycqa/isort
         rev: 5.10.1
         hooks:
         - id: isort
