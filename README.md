@@ -107,18 +107,18 @@ For a general Python project I would propose the following jobs/tests:
         rev: 5.10.1
         hooks:
         - id: isort
-        name: Sorting Python imports with isort
+          name: Sorting Python imports with isort
     -   repo: https://github.com/ambv/black
         rev: stable
         hooks:
         - id: black
-        name: Formatting code
-        language_version: python3.10
+          name: Formatting code
+          language_version: python3.10
     -   repo: https://github.com/PyCQA/flake8
         rev: 4.0.1
         hooks:
         - id: flake8
-        name: Linting with flake8
+          name: Linting with flake8
     ```
     **Info about the steps**:
     - **pre-commit hooks**:  Check out the [documentation](https://pre-commit.com/hooks.html)  about what each
