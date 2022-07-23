@@ -191,7 +191,7 @@ to your flake8 config:
     ```ini
     [flake8]
     max-line-length = 88
-    extend-ignore = E203
+    extend-ignore = E203, E227
     ```
     **About the content**: Since we use the default line-length of Black which is 88,
     the number deviates from the PEP 8 max-line-length of 79.
