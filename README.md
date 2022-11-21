@@ -229,7 +229,13 @@ like the following:
     ```
     pre-commit install
     ```
-8. Before committing everything you should test your pre-commit hook and
+    
+8. Update the dependencies of the hook with:
+    ```
+    pre-commit autoupdate
+    ```    
+    
+9. Before committing everything you should test your pre-commit hook and
 validate that it does what it should with:
     ```
     pre-commit run --all-files
